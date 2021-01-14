@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/comment.css">
+    <link rel="stylesheet" href="./css/home.css">
+    <link rel="stylesheet" href="./bootstrap-4.5.2/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="./font/iconfont.css">
+    <link rel="stylesheet" href="./bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="./css/animate.css"> -->
+    <style>
+        .testcode {
+            width: 50px;
+            height: 20px;
+            text-align: center;
+            border: 1px solid gray;
+        }
+
+        #username_span,
+        #password_span {
+            display: block;
+            margin-top: 10px;
+            line-height: 20px;
+            text-align: center;
+            width: 40%;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="header" class="container clear">
+        <div class="logo clear">
+            <img id="logo_img" src="./images/logo.png" alt="logo">
+            <div id="logo_text">发现美食的狗</div>
+            <div id="now_time"></div>
+        </div>
+        <div class="container line"></div>
+        <nav id="nav">
+            <ul id="nav_list">
+                <li><a href="#home.html">主页</a></li>
+                <li><a href="#bbs">论坛</a></li>
+                <li><a href="#sign">签到</a></li>
+                <li><a href="#personalpage">个人主页</a></li>
+                <li><a href="#exchange">积分兑换</a></li>
+                <div class="dropdown">
+                    <a href="#more" id="lastnav">更多</a>
+                    <div class="moredropdown">
+                        <a href="#realNameVerification.">实名验证</a>
+                        <a href="#mailBoxVerification">邮箱验证</a>
+                        <a href="#recharge">积分充值</a>
+                    </div>
+                </div>
+            </ul>
+        </nav>
+    </header>
+    <div class="container line"></div>
+    <section id="personal_information" class="clear">
+        <div>
+            <span class="iconfont iconusercenter"></span>
+        </div>
+        <div><span class="iconfont iconhome-fill"></span></div>
+        <div><span class="iconfont iconshare"></span></div>
+        <div><a href="#top"><span class="iconfont  iconTop"></span></a></div>
+    </section>
+    <section id="regedit">
+        <div class="container">
+            <div class="panel panel-warning mt-4">
+                <div class="panel-heading">
+                    <h2>注册</h2>
+                </div>
+                <div class="panel-body">
+                    <div class="form-group ">
+                        <label for="username">用户名</label>
+                        <input type="text" class="form-control" id="username" name="username" style="width: 40%;" />
+                        <span id="username_span">用户名长度为4-18个字符，可以使用数字字母下划线，首字符必须为字母!</span>
+                    </div>
+                    <div class="form-group ">
+                        <label for="name">昵称</label>
+                        <input type="text" class="form-control" id="nickName" name="nickName" style="width: 40%;" />
+                        <span></span>
+                    </div>
+                    <div class="form-group clear">
+                        <label for="password">密码</label>
+                        <input type="password" class="form-control" name="password" style="width: 40%;" id="password" />
+                        <span id="password_span">密码必须多于6个字符，可以使用数字字母下划线！</span>
+                        <div class="clear">
+                            <div class="testcode float-left mt-4">弱</div>
+                            <div class="testcode float-left  mt-4">中</div>
+                            <div class="testcode float-left  mt-4">强</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">邮箱</label>
+                        <input type="email" class="form-control" id="email" name="email" style="width: 40%;" />
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary" id="register" style="width: 40%;">注册</button>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <div class="form-group">
+                        <a href="login.html"><button class="btn btn-primary"
+                                style="width: 40%;">&gt;&gt;去登录</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+<script src="./js/tools.js"></script>
+<script src="./js/ajax.js"></script>
+<script>
+    var userName = document.getElementById("username");
+    var userName_span = document.getElementById("username_span");
+    var passWord = document.getElementById("password");
+    var passWord_span = document.getElementById("password_span");
+    var nickName = document.getElementById("nickName");
+    var email = document.getElementById("email");
+    var register = document.getElementById("register");
+    var testcode = document.getElementsByClassName("testcode");
+
+    //给用户名输入框添加键盘事件
+    userName.onblur = function () {
+        var oValue = userName.value;
+        $ajax({
+            method: "post",
+            url: "register.php",
+            data: {
+                username: oValue
+            },
+            success: function (result) {
+                var obj = JSON.parse(result);
+                // console.log(obj.message);
+                if (obj.code == 3) {
+                    userName_span.innerHTML = obj.message;
+                    userName_span.style.color = `red`;
+                    userName_span.className = `glyphicon  glyphicon-remove-sign alert alert-danger`;
+                }
+            },
+            error: function (msg) {
+                var str = JSON.parse(msg);
+                console.log(str);
+            }
+        })
+
+        if (oValue.length > 18 || oValue.length < 6) {
+            userName_span.style.color = `red`;
+            userName_span.innerHTML = `&nbsp;用户名应为6~18个字符`;
+            userName_span.className = `glyphicon  glyphicon-remove-sign alert alert-danger`;
+        } else if (!/[a-zA-Z]/.test(oValue[0])) {
+            userName_span.innerHTML = `&nbsp;首字符应为字母！！`;
+            userName_span.style.color = `red`;
+            userName_span.className = `glyphicon  glyphicon-remove-sign alert alert-danger`;
+        } else if (/[/W]/.test(oValue)) {
+            userName_span.innerHTML = `&nbsp;用户名应为数字字母下划线`;
+            userName_span.style.color = `red`;
+            userName_span.className = `glyphicon  glyphicon-remove-sign alert alert-danger`;
+        } else {
+            userName_span.innerHTML = `&nbsp;用户名`;
+            userName_span.style.color = `green`;
+            userName_span.className = `glyphicon  glyphicon-ok-sign alert alert-success`;
+        }
+    }
+
+    //给密码输入框添加键盘事件
+    passWord.onkeyup = function () {
+        var oValue = passWord.value;
+
+        //初始化
+        for (var i = 0; i < testcode.length; i++) {
+            testcode[i].style.backgroundColor = `white`;
+            testcode[i].style.color = `black`;
+        }
+
+        if (oValue.length < 6) {
+            passWord_span.style.color = `red`;
+            passWord_span.innerHTML = `&nbsp;密码必须多于6个字符`;
+            passWord_span.className = `glyphicon  glyphicon-remove-sign alert alert-danger`;
+            //ok
+        }
+        if (oValue.length >= 6) {
+            passWord_span.style.color = `black`;
+            passWord_span.innerHTML = `&nbsp;密码必须多于6个字符，可以使用数字字母下划线！`;
+            passWord_span.className = ``;
+            if (/^\d+$/.test(oValue) || /^[a-z]+$/.test(oValue) || /^[A-Z]+$/.test(oValue)) {
+                testcode[0].style.backgroundColor = `red`;
+                testcode[0].style.color = `white`;
+                console.log(testcode);
+            } else if (/\d/.test(oValue) && /[a-z]/.test(oValue) && /[A-Z]/.test(oValue)) {
+                testcode[2].style.backgroundColor = `green`;
+                testcode[2].style.color = `white`;
+            } else {
+                testcode[1].style.backgroundColor = `yellow`;
+                testcode[1].style.color = `white`;
+            }
+        }
+    }
+
+    //给注册按钮添加点击事件
+    register.onclick = function () {
+        console.log(name.value);
+        $ajax({
+            method: "post",
+            url: "register.php",
+            data: {
+                username: userName.value,
+                nickName: nickName.value,
+                password: passWord.value,
+                email: email.value,
+                creat_time:new Date().getTime()
+            },
+            success: function (result) {
+                var obj = JSON.parse(result);
+                alert(obj.message);
+                    setTimeout(() => {
+                        location.href=`./login.html`;
+                    }, 2000);
+            },
+            error: function (msg) {
+                var obj = JSON.parse(msg);
+                alert(obj.message);
+            }
+        })
+    }
+</script>
+
+</html>

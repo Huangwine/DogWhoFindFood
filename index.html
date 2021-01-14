@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/comment.css">
+    <link rel="stylesheet" href="./css/home.css">
+    <link rel="stylesheet" href="./bootstrap-4.5.2/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="./font/iconfont.css">
+    <!-- <link rel="stylesheet" href="./css/animate.css"> -->
+</head>
+
+<body>
+    <header id="header" class="container clear">
+        <div class="logo clear">
+            <img id="logo_img" src="./images/logo.png" alt="logo">
+            <div id="logo_text">发现美食的狗</div>
+            <div id="now_time"></div>
+        </div>
+        <nav id="nav">
+            <ul id="nav_list">
+                <li><a href="#home.html">主页</a></li>
+                <li><a href="#bbs">论坛</a></li>
+                <li><a href="#sign">签到</a></li>
+                <li><a href="#personalpage">个人主页</a></li>
+                <li><a href="#exchange">积分兑换</a></li>
+                <div class="dropdown">
+                    <a href="#more" id="lastnav">更多</a>
+                    <div class="moredropdown">
+                        <a href="#realNameVerification.">实名验证</a>
+                        <a href="#mailBoxVerification">邮箱验证</a>
+                        <a href="#recharge">积分充值</a>
+                    </div>
+                </div>
+            </ul>
+        </nav>
+    </header>
+    <div class="container line"></div>
+    <section id="banner" class="container clear">
+        <ul id="banner_ul" class="container clear">
+            <li>
+                <img src="./images/dish_lu_jiuzhuandachang.jpg" alt="">
+                <div>
+                    <p class="dish_name">九转大肠</p>
+                    <span
+                        class="synopsis">&nbsp;&nbsp;&nbsp;&nbsp;九转大肠原名为红烧大肠，是山东省济南市的一道传统名菜，属于鲁菜系；该菜品在清朝光绪初年由济南九华楼酒楼店主首创；其做法是先将猪大肠经水焯后油炸，再灌入十多种作料，用微火炮制而成。成菜后，酸、甜、香、辣、咸五味俱全，色泽红润，质地软嫩。</br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;2018年9月10日,“中国菜”正式发布，“九转大肠“被评为山东十大经典名菜。</span>
+                </div>
+            </li>
+            <!-- <li>
+                <img src="" alt="">
+                <div>
+                    <p id="dish_name"></p>
+                    <span id="synopsis"></span>
+                </div>
+            </li>
+            <li>
+                <img src="" alt="">
+                <div>
+                    <p id="dish_name"></p>
+                    <span id="synopsis"></span>
+                </div>
+            </li>
+            <li>
+                <img src="" alt="">
+                <div>
+                    <p id="dish_name"></p>
+                    <span id="synopsis"></span>
+                </div>
+            </li> -->
+        </ul>
+        <div id="banner_btns" class="clear">
+            <div id="bannerBtn_left" class="clear"><span class="iconfont iconzuoyou-copy"></span></div>
+            <div id="bannerBtn_right" class="clear"><span class="iconfont iconzuoyou"></span></div>
+            <ul id="banner_dotted" class="clear">
+                <li class="active"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </section>
+    <section id="personal_information" class="clear">
+        <div>
+            <span class="iconfont iconusercenter"></span>
+        </div>
+        <div><span class="iconfont iconhome-fill"></span></div>
+        <div><span class="iconfont iconshare"></span></div>
+        <div><a href="#top"><span class="iconfont  iconTop"></span></a></div>
+    </section>
+    <div class="container line"></div>
+    <section id="style_of_cooking" class="container ">
+        <ul id="style_list">
+            <li class="shake"><i class="iconfont iconhongxian"></i><span></span><a href="#sichuan_cuisine"> 川菜</a><em
+                    class="iconfont iconchinese-knot "></em></li>
+            <li><i class="iconfont iconhongxian"></i><span></span><a href="#shandong_cuisine">鲁菜</a><em
+                    class="iconfont iconchinese-knot "></em></li>
+            <li><i class="iconfont iconhongxian"></i><span></span><a href="#guangdong_cuisine">粤菜</a><em
+                    class="iconfont iconchinese-knot "></em></li>
+            <li><i class="iconfont iconhongxian"></i><span></span><a href="#jiangsu_cuisine">苏菜</a><em
+                    class="iconfont iconchinese-knot "></em></li>
+            <li><i class="iconfont iconhongxian"></i><span></span><a href="#zhejiang_cuisine">浙菜</a><em
+                    class="iconfont iconchinese-knot "></em></li>
+            <li><i class="iconfont iconhongxian"></i><span></span><a href="#fujian_cuisine">闽菜</a><em
+                    class="iconfont iconchinese-knot "></em></li>
+            <li><i class="iconfont iconhongxian"></i><span></span><a href="#hunan_cuisine">湘菜</a><em
+                    class="iconfont iconchinese-knot "></em></li>
+            <li><i class="iconfont iconhongxian"></i><span></span><a href="#anhui_cuisine">徽菜</a><em
+                    class="iconfont iconchinese-knot "></em></li>
+        </ul>
+        <div class="container line"></div>
+        <div id="sichuan_cuisine" class="cuisine">
+            <div class="introduce">
+                <div><span></span>川菜<span></span></div>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;川菜是中国汉族传统的四大菜系之一、中国八大菜系之一、中华料理集大成者。<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;川菜三派的划分，是在已有定论的上河帮、小河帮、下河帮的基础上，规范化完整表述为：上河帮川菜即以川西成都、乐山为中心地区的蓉派川菜；小河帮川菜即以川南自贡为中心的盐帮菜,，同时包括宜宾菜、泸州菜和内江菜，下河帮川菜即以达州菜、重庆菜、万州菜为代表的江湖菜。三者共同组成川菜三大主流地方风味流派分支菜系，代表川菜发展最高艺术水平。2017年9月28日，中国烹饪协会授予四川眉山市“川厨之乡”的称号，眉山菜成为川菜的代表。<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;取材广泛，调味多变，菜式多样，口味清鲜，醇浓并重，以善用麻辣调味著称，并以别具一格的烹调方法和浓郁的地方风味闻名，融会了东南西北各方的特点，博采众家之长，善于吸收和创新。四川省会成都市被联合国教科文组织授予“世界美食之都”的荣誉称号。<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;明末清初，辣椒传入，直至清末，风味特点逐渐定型，并在新中国成立后得到创新发展，川菜以家常菜为主，高端菜为辅，取材多为日常百味，也不乏山珍海鲜。其特点为：“善用三椒”、“一菜一格，百菜百味”；口味多变，包含鱼香、家常、麻辣、红油、蒜泥、姜汁、陈皮、芥末、纯甜、怪味等24种口味。<a href="">更多资料&gt;&gt;&gt;</a>
+                </p>
+                <div class="recommend_list">推荐菜品：
+                    <a href="#">开水白菜</a>
+                    <a href="#">宫保鸡丁</a>
+                    <a href="#">夫妻肺片</a>
+                    <a href="#">毛血旺</a>
+                    <a href="#">麻婆豆腐</a>
+                    <a href="#">东坡肘子</a>
+                    <a href="#">口水鸡</a>
+                    <a href="#">鱼香肉丝</a>
+                    <a href="#">糖醋排骨</a>
+                    <a href="#">钵钵鸡</a>
+                    <a href="#" class="moreDish">更多菜品&gt;&gt;&gt;</a>
+                </div>
+            </div>
+        </div>
+        <div class="container line"></div>
+        <div id="shandong_cuisine" class="cuisine">
+            <div class="introduce">
+                <div><span></span>鲁菜<span></span></div>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;鲁菜，是中国传统四大菜系（也是八大菜系）中唯一的自发型菜系（相对于淮扬、川、粤等影响型菜系而言），黄河流域烹饪文化的代表，是历史最悠久、技法最丰富、难度最高、最见功力的菜系之一。<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;2500年前山东的儒家学派奠定了中国饮食注重精细、中和、健康的审美取向；北魏末年《齐民要术》（成书时间为约公元533—544年）总结的黄河中下游地区的“蒸、煮、烤、酿、煎、炒、熬、烹、炸、腊、盐、豉、醋、酱、酒、蜜、椒”奠定了中式烹调技法的框架；明清时期大量山东厨师和菜品进入宫廷，使鲁菜雍容华贵、中正大气、平和养生的风格特点进一步得到升华。
+                </p>
+                <div class="recommend_list">推荐菜品：
+                    <a href="#">德州扒鸡</a>
+                    <a href="#">红烧大虾</a>
+                    <a href="#">九转大肠</a>
+                    <a href="#">葱烧海参</a>
+                    <a href="#">清汤柳叶燕菜</a>
+                    <a href="#">四喜丸子</a>
+                    <a href="#">坛子肉</a>
+                    <a href="#">糖醋鲤鱼</a>
+                    <a href="#">一品豆腐</a>
+                    <a href="#">油爆双脆</a>
+                    <a href="#" class="moreDish">更多菜品&gt;&gt;&gt;</a>
+                </div>
+            </div>
+        </div>
+        <div class="container line"></div>
+        <div id="guangdong_cuisine" class="cuisine">
+            <div class="introduce">
+                <div><span></span>粤菜<span></span></div>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;鲁菜，是中国传统四大菜系（也是八大菜系）中唯一的自发型菜系（相对于淮扬、川、粤等影响型菜系而言），黄河流域烹饪文化的代表，是历史最悠久、技法最丰富、难度最高、最见功力的菜系之一。<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;2500年前山东的儒家学派奠定了中国饮食注重精细、中和、健康的审美取向；北魏末年《齐民要术》（成书时间为约公元533—544年）总结的黄河中下游地区的“蒸、煮、烤、酿、煎、炒、熬、烹、炸、腊、盐、豉、醋、酱、酒、蜜、椒”奠定了中式烹调技法的框架；明清时期大量山东厨师和菜品进入宫廷，使鲁菜雍容华贵、中正大气、平和养生的风格特点进一步得到升华。
+                    <a href="">更多资料&gt;&gt;&gt;</a>
+                </p>
+                <div class="recommend_list">推荐菜品：
+                    <a href="#">德州扒鸡</a>
+                    <a href="#">红烧大虾</a>
+                    <a href="#">九转大肠</a>
+                    <a href="#">葱烧海参</a>
+                    <a href="#">清汤柳叶燕菜</a>
+                    <a href="#">四喜丸子</a>
+                    <a href="#">坛子肉</a>
+                    <a href="#">糖醋鲤鱼</a>
+                    <a href="#">一品豆腐</a>
+                    <a href="#">油爆双脆</a>
+                    <a href="#" class="moreDish">更多菜品&gt;&gt;&gt;</a>
+                </div>
+            </div>
+        </div>
+        <div class="container line"></div>
+        <div id="jiangsu_cuisine" class="cuisine">
+            <div class="introduce">
+                <div><span></span>苏菜<span></span></div>
+                <p> &nbsp;&nbsp;&nbsp;&nbsp;江苏菜，中国传统八大菜系之一，简称苏菜。由于苏菜和浙菜相近，因此和浙菜统称江浙菜系。主要以金陵菜、淮扬菜、苏锡菜、徐海菜等地方菜组成。江苏菜起源于二千多年前，其中金陵菜起源于先秦时期，当时吴人善制炙鱼、蒸鱼和鱼片，一千多年前，鸭已为南京美食。南宋时，苏菜和浙菜同为“南食”的两大台柱。<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;苏菜擅长炖、焖、蒸、炒，重视调汤，保持菜的原汁，风味清鲜，浓而不腻，淡而不薄，酥松脱骨而不失其形，滑嫩爽脆而不失其味<br>
+                    金陵菜口味和醇，玲珑细巧；徐州菜色调浓重，习尚五辛；扬州菜清淡适口，刀工精细；苏州菜口味趋甜，清雅多姿。
+                    <a href="">更多资料&gt;&gt;&gt;</a>
+                </p>
+                <div class="recommend_list">推荐菜品：
+                    <a href="#">松鼠鳜鱼</a>
+                    <a href="#">软兜长鱼</a>
+                    <a href="#">大煮干丝</a>
+                    <a href="#">金陵盐水鸭</a>
+                    <a href="#">蟹粉狮子头</a>
+                    <a href="#">无锡酱排骨</a>
+                    <a href="#">天目湖砂锅鱼头</a>
+                    <a href="#">水晶肴蹄</a>
+                    <a href="#">红烧河豚</a>
+                    <a href="#">盱眙小龙虾</a>
+                    <a href="#" class="moreDish">更多菜品&gt;&gt;&gt;</a>
+                </div>
+            </div>
+        </div>
+        <div class="container line"></div>
+        <div id="zhejiang_cuisine" class="cuisine">
+            <div class="introduce">
+                <div><span></span>浙菜<span></span></div>
+                <p> &nbsp;&nbsp;&nbsp;&nbsp;浙江菜，简称浙菜，是中国传统八大菜系之一，其地山清水秀，物产丰富，故谚曰：“上有天堂，下有苏杭”。浙江省位于我国东海之滨，北部水道成网，素有鱼米之乡之称。西南丘陵起伏，盛产山珍野味。东部沿海渔场密布，水产资源丰富，有经济鱼类和贝壳水产品500余种，总产值居全国之首，物产丰富，佳肴自美，特色独具，有口皆碑。
+                    <a href="">更多资料&gt;&gt;&gt;</a>
+                </p>
+                <div class="recommend_list">推荐菜品：
+                    <a href="#">西湖醋鱼</a>
+                    <a href="#">龙井虾仁</a>
+                    <a href="#">赛蟹羹</a>
+                    <a href="#">东坡肉</a>
+                    <a href="#">雪菜大汤黄鱼</a>
+                    <a href="#">叫化童鸡</a>
+                    <a href="#">冰糖甲鱼</a>
+                    <a href="#">清汤越鸡</a>
+                    <a href="#">三丝敲鱼</a>
+                    <a href="#">干菜焖肉</a>
+                    <a href="#" class="moreDish">更多菜品&gt;&gt;&gt;</a>
+                </div>
+            </div>
+        </div>
+        <div class="container line"></div>
+        <div id="fujian_cuisine" class="cuisine">
+            <div class="introduce">
+                <div><span></span>闽菜<span></span></div>
+                <p> &nbsp;&nbsp;&nbsp;&nbsp;闽菜是中国八大菜系之一，历经中原汉族文化和闽越族文化的混合而形成。<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;闽菜发源于福州，以福州菜为基础，后又融合闽东、闽南、闽西、闽北、莆仙五地风味菜形成的菜系。<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;狭义闽菜指以福州菜，最早起源于福建福州闽县，后来发展成福州、闽南、闽西三种流派,即广义闽菜。<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;由于福建人民经常往来于海上，于是饮食习俗也逐渐形成带有开放特色的一种独特的菜系。闽菜以烹制山珍海味而著称，在色香味形俱佳的基础上，尤以“香”、“味”见长，其清鲜、和醇、荤香、不腻的风格特色，以及汤路广泛的特点，在烹坛园地中独具一席。<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;福州菜淡爽清鲜，讲究汤提鲜，擅长各类山珍海味；闽南菜（厦门、漳州、泉州一带）讲究佐料调味，重鲜香；闽西菜（长汀、宁化一带）偏重咸辣，烹制多为山珍，特显山区风味。故此，闽菜形成三大特色，一长于红糟调味，二长于制汤，三长于使用糖醋。
+                    &nbsp;&nbsp;&nbsp;&nbsp;汤是闽菜之精髓，素有一汤十变之说。据昙石山文化遗址考证，闽人在5000多年前就有了吃海鲜和制作汤食的传统。福建一年四季如春，这样的气候适合做汤。
+                    <a href="">更多资料&gt;&gt;&gt;</a>
+                </p>
+                <div class="recommend_list">推荐菜品：
+                    <a href="#">佛跳墙</a>
+                    <a href="#">鸡汤氽海蚌</a>
+                    <a href="#">白斩河田鸡</a>
+                    <a href="#">海蛎煎</a>
+                    <a href="#">武夷熏鹅</a>
+                    <a href="#">客家生鱼片</a>
+                    <a href="#">半月沉江</a>
+                    <a href="#">涮九门头</a>
+                    <a href="#">竹香南日鲍</a>
+                    <a href="#">荔枝肉</a>
+                    <a href="#" class="moreDish">更多菜品&gt;&gt;&gt;</a>
+                </div>
+            </div>
+        </div>
+        <div class="container line"></div>
+        <div id="hunan_cuisine" class="cuisine">
+            <div class="introduce">
+                <div><span></span>湘菜<span></span></div>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;湘菜，又叫湖南菜，是中国历史悠久的八大菜系之一，早在汉朝就已经形成菜系。以湘江流域、洞庭湖区和湘西山区三种地方风味为主。<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;湘菜制作精细，用料上比较广泛，口味多变，品种繁多；色泽上油重色浓，讲求实惠；品味上注重香辣、香鲜、软嫩；制法上以煨、炖、腊、蒸、炒诸法见称。
+                </p>
+                <div class="recommend_list">推荐菜品：
+                    <a href="#">剁椒鱼头</a>
+                    <a href="#">腊味合蒸</a>
+                    <a href="#">麻辣仔鸡</a>
+                    <a href="#">毛氏红烧肉</a>
+                    <a href="#">花菇无黄蛋</a>
+                    <a href="#">发丝牛百叶</a>
+                    <a href="#">汤泡肚尖</a>
+                    <a href="#">红烧海双味</a>
+                    <a href="#">红煨水鱼裙爪</a>
+                    <a href="#">雷公鸭</a>
+                    <a href="#" class="moreDish">更多菜品&gt;&gt;&gt;</a>
+                </div>
+            </div>
+        </div>
+        <div class="container line"></div>
+        <div id="anhui_cuisine" class="cuisine">
+            <div class="introduce">
+                <div><span></span>徽菜<span></span></div>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;徽菜，指徽州菜，是中国传统的八大菜系之一，是独具一格，自成一体的著名菜系。徽菜起源于秦汉，兴于唐宋，盛于明清，在清朝中、末期达到了鼎盛，徽菜是徽州六县的地方特色，其独特的地理人文环境赋予徽菜独有的味道，由于明清徽商的崛起，这种地方风味逐渐进入市肆，流传于苏、浙、赣、闽、沪、鄂至长江中下游区域，具有广泛的影响，明清时期一度居于八大菜系之首。<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;徽菜起源于南宋时期的古徽州(今安徽歙县一带)，原是徽州山区的地方风味。由于徽商的崛起，这种地方风味逐渐进入市肆，流传于苏、浙、赣、闽、沪、鄂以至长江中、下游区域，具有广泛的影响。
+                    <a href="">更多资料&gt;&gt;&gt;</a>
+                </p>
+                <div class="recommend_list">推荐菜品：
+                    <a href="#">霸王别姬</a>
+                    <a href="#">八公山豆腐</a>
+                    <a href="#">老蚌怀珠</a>
+                    <a href="#">胡适一品锅</a>
+                    <a href="#">蜜汁红芋</a>
+                    <a href="#">徽州臭鳜鱼</a>
+                    <a href="#">火烘鱼</a>
+                    <a href="#">李鸿章杂烩</a>
+                    <a href="#">椒盐米鸡</a>
+                    <a href="#">霍山风干羊</a>
+                    <a href="#" class="moreDish">更多菜品&gt;&gt;&gt;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+
+    </footer>
+</body>
+<script src="../DogWhoFindFood/js/tools.js"></script>
+<script src="./js/comment.js"></script>
+
+</html>

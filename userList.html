@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./bootstrap-4.5.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/Buttons.css">
+    <style>
+        #btn1 {
+            margin: 3px 0px;
+        }
+
+        #table1 {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h2>用户列表</h2>
+                <button class="button button-3d button-primary button-rounded" id="btn1">获取用户信息</button>
+            </div>
+            <div class="panel-body">
+                <table class="table table-bordered table-hover" id="table1">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>用户名（username）</th>
+                            <th>昵称（nickname）</th>
+                            <th>密码（password）</th>
+                            <th>邮箱（email）</th>
+                            <th>注册时间（creat_time）</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody1">
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="panel-footer"></div>
+        </div>
+    </div>
+</body>
+<script src="./js/ajax.js"></script>
+<script src="./js/tools.js"></script>
+<script>
+    var oBtn = document.getElementById("btn1");
+    var oTable = document.getElementById("table1");
+    var oTbody = document.getElementById("tbody1");
+
+    //按钮获取用户信息
+    oBtn.onclick = function () {
+        $ajax({
+            method: `post`,
+            url: `./getUserList.php`,
+            success: function (result) {
+                var arr = JSON.parse(result);
+                var str = ``;
+                for (let i = 0; i < arr.length; i++) {
+                    str += `<tr>
+                            <td>${arr[i].id}</td>
+                            <td>${arr[i].username}</td>
+                            <td>${arr[i].nickName}</td>
+                            <td>${arr[i].password}</td>
+                            <td>${arr[i].email}</td>
+                            <td>${showTime(Number(arr[i].creat_time))}</td>
+                            <td id="${arr[i].id}">
+                                <a href="#">删除</a>
+                                /
+                                <a href="./updataUserInfo.html?id=${arr[i].id}">修改</a>
+                            </td>
+                        </tr>`
+                }
+                oTbody.innerHTML = str;
+            },
+            error: function (msg) {
+                var obj = JSON.parse(msg);
+                alert(obj.message);
+            }
+        })
+    }
+    //给所有的删除添加委托事件
+    oTbody.onclick = function (ev) {
+        var e = ev || window.event;
+        var target = e.target || window.event.srcElement;
+        if (target.nodeName.toLowerCase() == "a" && target.innerHTML == `删除`) {
+            //删除记录的id
+            var id = target.parentNode.id;
+            $ajax({
+                method: "post",
+                url: "./deleteUser.php",
+                data: {
+                    id: id
+                },
+                success: function (result) {
+                    var obj = JSON.parse(result);
+                    if (!obj.code) {
+                        oTbody.removeChild(target.parentNode.parentNode);
+                        alert(obj.message);
+                    }
+                },
+                error: function (msg) {
+                    var obj = JSON.parse(msg);
+                    alert(obj.message);
+                }
+            })
+            preDef(e);
+        }
+
+    }
+</script>
+
+</html>

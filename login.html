@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/comment.css">
+    <link rel="stylesheet" href="./css/home.css">
+    <link rel="stylesheet" href="./bootstrap-4.5.2/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="./font/iconfont.css">
+    <link rel="stylesheet" href="./bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="./css/animate.css"> -->
+    <style>
+        #alert-danger{
+            display: none;
+            margin-top: 2px; 
+            padding: 2px;
+            width: 40%;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="header" class="container clear">
+        <div class="logo clear">
+            <img id="logo_img" src="./images/logo.png" alt="logo">
+            <div id="logo_text">发现美食的狗</div>
+            <div id="now_time"></div>
+        </div>
+
+        <nav id="nav">
+            <ul id="nav_list">
+                <li><a href="#home.html">主页</a></li>
+                <li><a href="#bbs">论坛</a></li>
+                <li><a href="#sign">签到</a></li>
+                <li><a href="#personalpage">个人主页</a></li>
+                <li><a href="#exchange">积分兑换</a></li>
+                <div class="dropdown">
+                    <a href="#more" id="lastnav">更多</a>
+                    <div class="moredropdown">
+                        <a href="#realNameVerification.">实名验证</a>
+                        <a href="#mailBoxVerification">邮箱验证</a>
+                        <a href="#recharge">积分充值</a>
+                    </div>
+                </div>
+            </ul>
+        </nav>
+    </header>
+    <div class="container line"></div>
+    <section id="personal_information" class="clear">
+        <div>
+            <span class="iconfont iconusercenter"></span>
+        </div>
+        <div><span class="iconfont iconhome-fill"></span></div>
+        <div><span class="iconfont iconshare"></span></div>
+        <div><a href="#top"><span class="iconfont  iconTop"></span></a></div>
+    </section>
+    <section id="login">
+        <div class="container">
+            <div class="panel panel-warning mt-4">
+                <div class="panel-heading">
+                    <h2>登录</h2>
+                </div>
+                <div class="panel-body">
+                    <div class="form-group ">
+                        <label for="username">用户名</label>
+                        <input type="text" class="form-control" id="username" name="username" style="width: 40%;" />
+                    </div>
+                    <div class="form-group">
+                        <label for="password">密码</label>
+                        <input type="password" class="form-control" id="password" name="password" style="width: 40%;" />
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="remenberP">
+                        <label class="form-check-label ml-5 mb-3" for="remenberP">
+                            自动登录
+                        </label>
+                    </div>
+                    <div id="alert-danger" class="alert alert-danger"></div>
+                    <div class="form-group">
+                        <button class="btn btn-primary" id="login" style="width: 40%;">登录</button>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <div class="form-group">
+                        <a href="register.html"><button class="btn btn-primary"
+                                style="width: 40%;">&gt;&gt;去注册</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+<script src="./js/tools.js"></script>
+<script src="./js/ajax.js"></script>
+<script>
+    var username = document.getElementById("username");
+    var password = document.getElementById("password");
+    var login = document.getElementById("login")
+    var oAlert=document.getElementById("alert-danger");
+
+    login.onclick = function () {
+        $ajax({
+            method: "post",
+            url: "login.php",
+            data: {
+                username: username.value,
+                password: password.value
+            },
+            success: function (result) {
+                var obj=JSON.parse(result);
+                if(obj.code){
+                    oAlert.className=`alert alert-danger`;
+                }else{
+                    oAlert.className=`alert alert-success`;
+                }
+                oAlert.style.display=`block`;
+                oAlert.innerHTML=obj.message;
+            },
+            error: function (msg) {
+                var obj=JSON.parse(msg);
+                alert(obj.message);
+            }
+        })
+    }
+</script>
+
+</html>

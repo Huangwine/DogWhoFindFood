@@ -1,0 +1,425 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body header {
+    margin: 0;
+}
+
+.logo {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    left: 150px;
+}
+
+html {
+    width: 100%;
+    height: 2000px;
+    background: -webkit-linear-gradient(top, LightPink, rgb(255, 224, 220), rgb(255, 233, 233));
+    background-repeat: no-repeat;
+}
+
+.searches {
+    display: flex;
+    position: absolute;
+    left: 450px;
+    top: 100px;
+}
+
+input, button {
+    border: none;
+}
+
+#search {
+    /* display: block; */
+    width: 300px;
+    height: 30px;
+    border: rgba(0, 0, 0, 0);
+    border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
+    font-size: 18px;
+    padding-left: 15px;
+    margin: auto;
+    line-height: 18px;
+}
+
+#search:focus {
+    outline: none;
+    border-color: #3e91ff !important;
+    background-color: #fff;
+    box-shadow: 0px 1px 5px rgb(137, 188, 255);
+}
+
+.search-btn {
+    border: rgba(0, 0, 0, 0);
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
+    cursor: pointer;
+    width: 50px;
+    font-size: 17px;
+}
+
+.search-btn:hover {
+    background-color: #adadad;
+}
+
+.navigationbar ul {
+    margin: 0;
+    padding: 0;
+    display: block;
+    list-style-type: none;
+    position: absolute;
+    left: 250px;
+    top: 200px;
+}
+
+.navigationlist {
+    display: inline-block;
+    border-radius: 5%;
+    background: -webkit-linear-gradient(top, rgb(252, 90, 114), rgb(252, 141, 128));
+    /* background: url(../images/navigationbackgroundcolor.jpg); */
+    height: 30px;
+    width: 550px;
+    text-align: center;
+}
+
+.navigationlist a {
+    text-align: center;
+    line-height: 20px;
+    color: wheat;
+    display: block;
+    float: left;
+    text-decoration: none;
+    /* margin: auto; */
+    padding: 5px 20px;
+    font-size: 1.1em;
+    border-right: 1px solid rgb(160, 160, 160);
+    overflow: visible;
+}
+
+.three-d {
+    background: none;
+    perspective: 200px;
+    transition: all 0.07s linear;
+    position: relative;
+    cursor: pointer;
+}
+
+/* complete the animation! */
+
+.three-d:hover .three-d-box, .three-d:focus .three-d-box {
+    transform: translateZ(-25px) rotateX(90deg);
+}
+
+.three-d-box {
+    transition: all 0.3s ease-out;
+    transform: translateZ(-25px);
+    transform-style: preserve-3d;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.front {
+    position: absolute;
+    /* top:-20px; */
+    transform: rotate(0deg) translateZ(15.5px);
+    z-index: 9999;
+}
+
+.back {
+    position: absolute;
+    top: 0px;
+    transform: rotateX(-90deg) translateZ(15.5px);
+    color: #ffe7c4;
+}
+
+.front, .back {
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: -webkit-linear-gradient(top, rgb(252, 90, 114), rgb(252, 141, 128));
+    /* background: url(../images/navigationbackgroundcolor.jpg); */
+    padding: 5px 10px;
+    pointer-events: none;
+    box-sizing: border-box;
+    font-size: 1.1em;
+}
+
+.navigationlist a:hover {
+    background-color: rgb(255, 5, 130);
+}
+
+#lastnav {
+    border-right: 0;
+    display: inline-block;
+    width: 80%;
+    position: relative;
+    right: 10px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.moredropdown {
+    display: none;
+    position: absolute;
+    top: 30px;
+    left: -12px;
+    background-color: #f0f0f0;
+    min-width: 105px;
+    box-shadow: 0px 2px 15px 0px rgb(197, 197, 197);
+    z-index: 1;
+}
+
+.moredropdown a {
+    display: block;
+    border: 0;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+}
+
+.moredropdown a:hover {
+    background-color: #dddddd;
+}
+
+.dropdown:hover .moredropdown {
+    display: block;
+}
+
+/*菜系介绍*/
+
+.introduction {
+    width: 880px;
+    height: 240px;
+    overflow: hidden;
+    position: relative;
+    left: 140px;
+    top: 250px;
+    /* background-color: rgb(223, 45, 98); */
+    background: -webkit-linear-gradient(top,rgb(240, 75, 176),rgb(255, 92, 160));
+    transition: all 2s;
+    /* float: left; */
+    display: flex;
+    border: none;
+}
+
+.introduction div {
+    color: wheat;
+    width: 108px;
+    height: 230px;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.introduction div img {
+    width: 100px;
+    height: 200px;
+    position: absolute;
+    top: 30px;
+    /* display: block; */
+    float: left;
+}
+
+.introduction div h2 {
+    /* margin-left: 25px; */
+    text-align: center;
+}
+
+.introduction div p {
+    margin-top: 230px;
+}
+/* 
+.introduction div span {
+    text-indent: 2em;
+} */
+
+/* 鼠标移入事件 */
+
+.introduction:hover div {
+    /* clear: both; */
+    display: block;
+    width: 50px;
+    /* float: left; */
+    margin:0 auto;
+}
+
+.introduction:hover div>img {
+    margin-left: -29.5px;
+    transform: scaleX(0.5);
+}
+/* 川菜 */
+.introduction .chuancai:hover {
+    width: 450px;
+    overflow: auto;
+}
+.introduction .chuancai:hover img{
+    margin-left: 3px;
+    text-align: center;
+    transform: scaleX(1);
+}
+.introduction .chuancai:hover p {
+    margin: 0 0 0 108px;
+    clear: both;
+}
+.introduction .chuancai:hover h2 {
+    text-align: center;
+}
+/* 鲁菜 */
+.introduction .lucai:hover {
+    width: 450px;
+    overflow: auto;
+}
+.introduction .lucai:hover img{
+    margin-left: 3px;
+    text-align: center;
+    transform: scaleX(1);
+}
+.introduction .lucai:hover p {
+    margin: 0 0 0 108px;
+    clear: both;
+}
+.introduction .yuecai:hover h2 {
+    text-align: center;
+}
+/* 粤菜 */
+.introduction .yuecai:hover {
+    width: 450px;
+    overflow: auto;
+}
+.introduction .yuecai:hover img{
+    margin-left: 3px;
+    text-align: center;
+    transform: scaleX(1);
+}
+.introduction .yuecai:hover p {
+    margin: 0 0 0 108px;
+    clear: both;
+}
+.introduction .yuecai:hover h2 {
+    text-align: center;
+}
+/* 苏菜 */
+.introduction .sucai:hover {
+    width: 450px;
+    overflow: auto;
+}
+.introduction .sucai:hover img{
+    margin-left: 3px;
+    text-align: center;
+    transform: scaleX(1);
+}
+.introduction .sucai:hover p {
+    margin: 0 0 0 108px;
+    clear: both;
+}
+.introduction .sucai:hover h2 {
+    text-align: center;
+}
+/* 浙菜 */
+.introduction .zhecai:hover {
+    width: 450px;
+    overflow: auto;
+}
+.introduction .zhecai:hover img{
+    margin-left: 3px;
+    text-align: center;
+    transform: scaleX(1);
+}
+.introduction .zhecai:hover p {
+    margin: 0 0 0 108px;
+    clear: both;
+}
+.introduction .zhecai:hover h2 {
+    text-align: center;
+}
+/* 闽菜 */
+.introduction .mincai:hover {
+    width: 450px;
+    overflow: auto;
+}
+.introduction .mincai:hover img{
+    margin-left: 3px;
+    text-align: center;
+    transform: scaleX(1);
+}
+.introduction .mincai:hover p {
+    margin: 0 0 0 108px;
+    clear: both;
+}
+.introduction .mincai:hover h2 {
+    text-align: center;
+}
+/* 湘菜 */
+.introduction .xiangcai:hover {
+    width: 450px;
+    overflow: auto;
+}
+.introduction .xiangcai:hover img{
+    margin-left: 3px;
+    text-align: center;
+    transform: scaleX(1);
+}
+.introduction .xiangcai:hover p {
+    margin: 0 0 0 108px;
+    clear: both;
+}
+.introduction .xiangcai:hover h2 {
+    text-align: center;
+}
+/* 徽菜 */
+.introduction .huicai:hover {
+    width: 450px;
+    overflow: auto;
+}
+.introduction .huicai:hover img{
+    margin-left: 3px;
+    text-align: center;
+    transform: scaleX(1);
+}
+.introduction .huicai:hover p {
+    margin: 0 0 0 108px;
+    clear: both;
+}
+.introduction .huicai:hover h2 {
+    text-align: center;
+}
+
+a.toTop {
+    display: block;
+    background: rgb(255, 104, 104);
+    border: 1px solid #c9c8c8;
+    width: 30px;
+    height: 30px;
+    position: fixed;
+    bottom: 40px;
+    right: 50px;
+    text-decoration: none;
+}
+
+a.toTop span.iconfont {
+    display: block;
+    box-sizing: border-box;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    margin: auto;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-size: 20px;
+}

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./bootstrap-4.5.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/Buttons.css">
+    <link rel="stylesheet" href="./font/iconfont.css">
+    <style>
+        * {
+            font-size: 18px;
+        }
+
+        #alert-danger {
+            width: 40%;
+            display: none;
+        }
+
+        #updata input {
+            height: 30px;
+            font-size: 16px;
+        }
+
+        #updata {
+            position: relative;
+        }
+
+        #canSee {
+            font-size: 15px;
+            position: absolute;
+            left: 42%;
+            top: 175px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="panel panel-primary" id="updata">
+            <div class="panel-heading">
+                <h2>修改用户信息</h2>
+            </div>
+            <div class="panel-body">
+                <div class="form-group ">
+                    <label for="username">用户名（username）</label>
+                    <input type="text" class="form-control" id="username" name="username" style="width: 40%;" />
+                </div>
+                <div class="form-group">
+                    <label for="password">密码（password）</label>
+                    <input type="password" class="form-control" id="password" name="password" style="width: 40%;" />
+                    <span class="iconfont iconbukejian" id="canSee" "></span>
+                </div>
+                <div class=" form-group">
+                        <label for="nickName">昵称（nickname）</label>
+                        <input type="nickName" class="form-control" id="nickName" name="nickName" style="width: 40%;" />
+                </div>
+                <div class="form-group">
+                    <label for="email">邮箱（email）</label>
+                    <input type="email" class="form-control" id="email" name="email" style="width: 40%;" />
+                </div>
+                <div class="form-group">
+                    <input type="hidden" class="form-control" id="id" name="id" style="width: 40%;" />
+                </div>
+                <div id="alert-danger" class="alert alert-danger"></div>
+                <div class="form-group">
+                    <button class="btn btn-primary" id="submit" style="width: 40%;font-size: 18px;">提交修改</button>
+                </div>
+            </div>
+            <div class="panel-footer"><a href="./userList.html">&lt;&lt;&lt;返回用户列表</a></div>
+        </div>
+    </div>
+</body>
+<script src="./js/ajax.js"></script>
+<script>
+    var oSubmit = document.getElementById("submit");
+    var oInput = document.getElementsByTagName("input");
+    var oAlert = document.getElementById("alert-danger");
+    var canSee = document.getElementById("canSee");
+    //获取通过url传输的id
+    var id = valueByName(location.search, "id");
+
+    //发送数据
+    $ajax({
+        method: `post`,
+        url: `./updataUserInfo.php`,
+        data: {
+            id: id
+        },
+        success: function (result) {
+            var obj = JSON.parse(result);
+            if (!obj.code) {
+                var row = JSON.parse(obj.message);
+                oInput[0].value = row.username;
+                oInput[1].value = row.password;
+                oInput[2].value = row.nickName;
+                oInput[3].value = row.email;
+                oInput[4].value = row.id;
+            }
+        },
+        error: function (msg) {
+            var obj = JSON.parse(msg);
+        }
+    })
+    //在查询字符串中获取name对应的值
+    function valueByName(search, name) {
+        var start = search.indexOf(`${name}=`);
+        if (start == -1) {
+            return null;
+        } else {
+            end = search.indexOf(`&`, start);
+            if (end == -1) {
+                end = search.length;
+            }
+            //提取出键值对
+            var str = search.substring(start, end);
+            var arr = str.split(`=`);
+            return arr[1];
+        }
+    }
+    var count = 1;
+    canSee.onclick = function () {
+        oInput[1].type = `text`;
+        canSee.className = `iconfont iconkejian`;
+        canSee.style.fontSize = `13px`;
+        canSee.style.marginTop = `2px`;
+        count++;
+        if (count % 2 == 0) {
+            oInput[1].type = `password`;
+            canSee.style.fontSize = `15px`;
+            canSee.className = `iconfont iconbukejian`;
+            canSee.style.marginTop = `0px`;
+        }
+    }
+    oSubmit.onclick = function () {
+        $ajax({
+            method: `post`,
+            url: `./updataUserInfoSubmit.php`,
+            data: {
+                username: oInput[0].value,
+                password: oInput[1].value,
+                nickName: oInput[2].value,
+                email: oInput[3].value,
+                id: oInput[4].value
+            },
+            success:function(result){
+                var obj=JSON.parse(result);
+                if(!obj.code){
+                    oAlert.className=`alert alert-success`;
+                    setTimeout(() => {
+                        location.href=`./userList.html`;
+                    }, 2000);
+                }else{
+                    oAlert.className=`alert alert-danger`;
+                }
+                oAlert.style.display=`block`;
+                oAlert.innerHTML=obj.message;
+            },
+            error:function(msg){
+                var obj=JSON.parse(msg);
+                alert(obj.message);
+            }
+        })
+    }
+</script>
+
+</html>

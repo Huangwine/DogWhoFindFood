@@ -1,0 +1,13 @@
+{
+  "name": "dogwhofindfood",
+  "version": "1.0.0",
+  "description": "美食分享网站",
+  "main": "index.js",
+  "scripts": {},
+  "keyword": "美食 分享 菜谱",
+  "author": "hwine",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^4.0.2"
+  }
+}
